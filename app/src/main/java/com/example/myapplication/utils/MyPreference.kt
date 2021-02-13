@@ -1,40 +1,50 @@
 package com.example.myapplication.utils
 
+import android.annotation.SuppressLint
+import android.content.Context
 import android.content.SharedPreferences
+import android.util.Log
+import com.example.myapplication.WanAndroidApplication
+import com.example.myapplication.logic.model.Constant
 import kotlin.properties.ReadWriteProperty
 import kotlin.reflect.KProperty
-
-class MyPreference<T>(private val name: String, private val default: T) : ReadWriteProperty<Any?, T> {
-
-    companion object {
-        lateinit var preference: SharedPreferences
-
-        fun clear() = preference.edit().clear().apply()
+class MyPreference<T>(val name: String, private val default: T) {
+    private val prefs: SharedPreferences by lazy {
+        WanAndroidApplication.context.applicationContext.getSharedPreferences(name, Context.MODE_PRIVATE)
     }
 
-    override fun getValue(thisRef: Any?, property: KProperty<*>): T = findPreference(name, default)
-
-    override fun setValue(thisRef: Any?, property: KProperty<*>, value: T) = putPreference(name, value)
-    private fun <T> findPreference(name: String, default: T): T = with(preference) {
-        val res: Any? = when (default) {
-            is Long -> getLong(name, default)
-            is String -> getString(name, default)
-            is Int -> getInt(name, default)
-            is Boolean -> getBoolean(name, default)
-            is Float -> getFloat(name, default)
-            else -> throw IllegalArgumentException("This type can not be get from Preferences")
-        }
-        res as T
+    operator fun getValue(thisRef: Any?, property: KProperty<*>): T {
+        Log.i("info", "调用$this 的getValue()")
+        return getSharePreferences(name, default)
     }
 
-    private fun <T> putPreference(name: String, value: T) = with(preference.edit()) {
+    operator fun setValue(thisRef: Any?, property: KProperty<*>, value: T) {
+        Log.i("info", "调用$this 的setValue() value参数值为：$value")
+        putSharePreferences(name, value)
+    }
+
+    @SuppressLint("CommitPrefEdits")
+    private fun putSharePreferences(name: String, value: T) = with(prefs.edit()) {
         when (value) {
             is Long -> putLong(name, value)
             is String -> putString(name, value)
             is Int -> putInt(name, value)
             is Boolean -> putBoolean(name, value)
             is Float -> putFloat(name, value)
-            else -> throw IllegalArgumentException("This type can not be saved into Preferences")
+            else -> throw IllegalArgumentException("This type of data cannot be saved!")
         }.apply()
+    }
+
+    @Suppress("UNCHECKED_CAST")
+    private fun getSharePreferences(name: String, default: T): T = with(prefs) {
+        val res: Any = when (default) {
+            is Long -> getLong(name, default)
+            is String -> getString(name, default)
+            is Int -> getInt(name, default)
+            is Boolean -> getBoolean(name, default)
+            is Float -> getFloat(name, default)
+            else -> throw IllegalArgumentException("This type of data cannot be saved!")
+        }!!
+        return res as T
     }
 }

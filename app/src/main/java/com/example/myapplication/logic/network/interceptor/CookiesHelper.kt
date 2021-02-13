@@ -1,10 +1,11 @@
-package com.example.myapplication.logic.network
+package com.example.myapplication.logic.network.interceptor
+
 
 import com.example.myapplication.utils.MyPreference
 import java.lang.StringBuilder
 
 object CookiesHelper {
-    private fun parseCookie(it: List<String>): String {
+fun parseCookie(it: List<String>): String {
         if(it.isEmpty()){
             return ""
         }
@@ -22,7 +23,7 @@ object CookiesHelper {
         return stringBuilder.deleteCharAt(stringBuilder.length - 1).toString()
     }
 
-    private fun saveCookie(domain: String?, parseCookie: String) {
+    fun saveCookie(domain: String?, parseCookie: String) {
         domain?.let {
             var resutl :String by MyPreference(it,parseCookie)
             resutl = parseCookie

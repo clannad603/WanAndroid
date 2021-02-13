@@ -1,7 +1,8 @@
 package com.example.myapplication.logic.model
 
 object Constant {
-    const val BASE_URL = "https://www.wanandroid.com"
+    const val SHARED_NAME = "_preferences"
+    const val BASE_URL = "https://www.wanandroid.com/"
 
     const val USERNAME_KEY = "username"
     const val READ_TIMEOUT = 60L
