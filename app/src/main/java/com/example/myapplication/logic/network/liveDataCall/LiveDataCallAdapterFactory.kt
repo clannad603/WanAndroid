@@ -15,7 +15,7 @@ class LiveDataCallAdapterFactory : Factory() {
         val observableType = getParameterUpperBound(0, returnType as ParameterizedType)
         val rawType = getRawType(observableType)
         if (rawType != BaseResponse::class.java) {
-            throw IllegalArgumentException("type must be ApiResponse")
+            throw IllegalArgumentException("type must be BaseResponse")
         }
         if (observableType !is ParameterizedType) {
             throw IllegalArgumentException("resource must be parameterized")

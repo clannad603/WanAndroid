@@ -4,5 +4,7 @@ import com.example.myapplication.logic.network.ApiService
 import com.example.myapplication.logic.network.ServiceCreator
 
 open class NetRepository:BaseRepository {
-
+   val api by lazy {
+         ServiceCreator.get()
+   }
 }
