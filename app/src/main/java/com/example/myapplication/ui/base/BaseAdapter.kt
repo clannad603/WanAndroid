@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
+import com.example.myapplication.utils.expand.clicks
 
 import java.lang.reflect.ParameterizedType
 
@@ -17,6 +18,13 @@ abstract class BaseAdapter <VB : ViewBinding, T>(
     }
 
     override fun onBindViewHolder(holder: BaseViewHolder, position: Int) {
+        holder.itemView.clicks {
+            itemClick?.let { it(position) }
+        }
+        holder.itemView.setOnLongClickListener {
+            itemLongClick?.let { it1 -> it1(position) }
+            true
+        }
        convert(holder.v as VB, listData[position], position)
     }
     abstract fun convert(v: VB, t: T, position: Int)
@@ -30,6 +38,17 @@ abstract class BaseAdapter <VB : ViewBinding, T>(
             RecyclerView.LayoutParams.WRAP_CONTENT
         )
         return BaseViewHolder(vb, vb.root)
+    }
+    private var itemClick: ((Int) -> Unit)? = null
+    private var itemLongClick: ((Int) -> Unit)? = null
+
+
+    fun itemClick(itemClick: (Int) -> Unit) {
+        this.itemClick = itemClick
+    }
+
+    fun itemLongClick(itemLongClick: (Int) -> Unit) {
+        this.itemLongClick = itemLongClick
     }
 
 }

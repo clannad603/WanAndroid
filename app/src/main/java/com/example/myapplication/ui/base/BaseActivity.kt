@@ -2,25 +2,32 @@ package com.example.myapplication.ui.base
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.Parcelable
+
 import android.os.PersistableBundle
 import android.view.LayoutInflater
-import android.widget.Button
+
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewbinding.ViewBinding
 import com.example.myapplication.utils.ActivityManager
-import java.io.Serializable
+
 import java.lang.reflect.ParameterizedType
 
+/***
+ * @Override
+public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
+super.onCreate(savedInstanceState, persistentState);
+}
+ 此方法导致界面不显示，原因
+ */
 abstract class BaseActivity <VM : BaseViewModel, VB : ViewBinding> :AppCompatActivity(){
     lateinit var mContext: FragmentActivity
     lateinit var vm: VM
     lateinit var v: VB
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
-
+    @Suppress("UNCHECKED_CAST")
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         val type = javaClass.genericSuperclass as ParameterizedType
         val clazz1 = type.actualTypeArguments[0] as Class<VM>
         vm = ViewModelProvider(this).get(clazz1)
@@ -40,6 +47,7 @@ abstract class BaseActivity <VM : BaseViewModel, VB : ViewBinding> :AppCompatAct
         initData()
         initVM()
     }
+
 
     abstract fun initVM()
 

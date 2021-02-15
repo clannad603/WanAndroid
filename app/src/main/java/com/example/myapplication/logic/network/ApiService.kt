@@ -12,6 +12,6 @@ interface ApiService {
     @GET("banner/json")
     fun bannerList(): LiveData<BaseResponse<List<BannerVO>>>
     @GET("maven_pom/package/json")
-    fun getMavenList():LiveData<BaseResponse<List<String>>>
+   fun getMavenList():LiveData<BaseResponse<List<String>>>
 
 }
