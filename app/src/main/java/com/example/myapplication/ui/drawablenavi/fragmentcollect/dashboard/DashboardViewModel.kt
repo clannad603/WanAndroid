@@ -1,10 +1,11 @@
-package com.example.myapplication.ui.navigationview.fragmentcollect.dashboard
+package com.example.myapplication.ui.drawablenavi.fragmentcollect.dashboard
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.myapplication.ui.base.BaseViewModel
 
-class DashboardViewModel : ViewModel() {
+class DashboardViewModel : BaseViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
         value = "This is dashboard Fragment"

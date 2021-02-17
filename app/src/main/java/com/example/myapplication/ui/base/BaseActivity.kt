@@ -51,7 +51,7 @@ abstract class BaseActivity <VM : BaseViewModel, VB : ViewBinding> :AppCompatAct
 
     abstract fun initVM()
 
-    fun startActivity(clazz: Class<*>) {
+    fun startAnotherActivity(clazz: Class<*>) {
         val intent = Intent(this, clazz)
         startActivity(intent)
     }
