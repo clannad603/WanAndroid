@@ -46,6 +46,7 @@ abstract class BaseActivity <VM : BaseViewModel, VB : ViewBinding> :AppCompatAct
         initView()
         initData()
         initVM()
+        initListener()
     }
 
 

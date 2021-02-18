@@ -13,4 +13,5 @@ object ToastUtil {
         if (!TextUtils.isEmpty(message)) Toast.makeText(context, message, Toast.LENGTH_SHORT)
                 .show()
     }
+    public final fun show(msg: kotlin.String): kotlin.Unit { /* compiled code */ }
 }

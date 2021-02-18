@@ -28,4 +28,12 @@
     <string name="menu_slideshow">Slideshow</string>
     <string name="title_activity_bottom_main">MainActivity</string>
     <string name="menu_account">登录</string>
+    <string name="news_item">sous</string>
+    <string name="wanandroid">玩安卓</string>
+    <string name="blank">"  "</string>
+    <string name="register">注册</string>
+    <string name="login">登录</string>
+    <string name="inputPassword">请输入密码</string>
+    <string name="correctPassword">请确认密码</string>
+    <string name="inputAccount">请输入账号</string>
 </resources>

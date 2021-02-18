@@ -6,11 +6,13 @@ import androidx.viewpager.widget.ViewPager
 import com.example.myapplication.R
 import com.example.myapplication.databinding.ActivityMain2Binding
 import com.example.myapplication.ui.account.login.LoginActivity
+import com.example.myapplication.ui.account.register.RegisterActivity
 import com.example.myapplication.ui.base.BaseActivity
 import com.example.myapplication.ui.base.BaseViewModel
 import com.example.myapplication.ui.drawablenavi.fragmentcollect.dashboard.DashboardFragment
 import com.example.myapplication.ui.drawablenavi.fragmentcollect.home.HomeFragment
 import com.example.myapplication.ui.drawablenavi.fragmentcollect.notifications.NotificationsFragment
+import com.example.myapplication.ui.search.SearchActivity
 import com.example.myapplication.utils.ToastUtil
 import com.example.myapplication.utils.Util
 import kotlinx.android.synthetic.main.activity_main2.*
@@ -121,7 +123,9 @@ class ModuleMainActivity : BaseActivity<BaseViewModel,ActivityMain2Binding>() {
 
             true
         }
-
+        search_button.setOnClickListener {
+            startAnotherActivity(SearchActivity::class.java)
+        }
     }
 
     override fun initVM() {
