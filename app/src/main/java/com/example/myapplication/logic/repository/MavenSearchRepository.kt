@@ -1,5 +1,6 @@
 package com.example.myapplication.logic.repository
 
-object MavenSearchRepository:NetRepository (){
-    suspend fun getMavenList()=api.getMavenList()
+class MavenSearchRepository:NetRepository (){
+    fun getList() =
+        api.getMavenList()
 }

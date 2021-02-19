@@ -36,6 +36,13 @@ class LoginActivity : BaseActivity<LoginViewModel, ActivityLoginBinding>() {
                 ToastUtil.showLongToast(this,it)
              finish()
         })
+        vm.loginUser.observe(this, Observer {
+            if(it==0){
+                vm.makeLogin("true")
+            }else{
+                vm.makeLogin("false")
+            }
+        })
     }
     private fun attemptLogin() {
         val username = v.editTextAccount.text.toString()

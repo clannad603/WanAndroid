@@ -36,4 +36,6 @@
     <string name="inputPassword">请输入密码</string>
     <string name="correctPassword">请确认密码</string>
     <string name="inputAccount">请输入账号</string>
+    <string name="loading">加载中。。。</string>
+    <string name="first_home">首页</string>
 </resources>

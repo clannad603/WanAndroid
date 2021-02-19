@@ -3,6 +3,7 @@ package com.example.myapplication.ui.drawablenavi
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.viewpager.widget.ViewPager
+import com.example.myapplication.MainActivity
 import com.example.myapplication.R
 import com.example.myapplication.databinding.ActivityMain2Binding
 import com.example.myapplication.ui.account.login.LoginActivity
@@ -111,13 +112,18 @@ class ModuleMainActivity : BaseActivity<BaseViewModel,ActivityMain2Binding>() {
             // Handle navigation view item clicks here.
             when (it.itemId) {
                 R.id.nav_home -> {
-                    startAnotherActivity(LoginActivity::class.java)
+                    if (vm.isLogin.value==="true"){
+                    startAnotherActivity(LoginActivity::class.java)}else{
+                        ToastUtil.showLongToast(this,"已登陆")
+                    }
                 }
                 /***
                  * 在这里跳转至其他活动，预计
                  */
+                R.id.nav_gallery->{
+                    startAnotherActivity(MainActivity::class.java)
+                }
             }
-
             //关闭侧边栏
             drawer_layout.closeDrawer(GravityCompat.START)
 

@@ -12,7 +12,9 @@ class MyPreference<T>(val name: String, private val default: T) {
     private val prefs: SharedPreferences by lazy {
         WanAndroidApplication.context.applicationContext.getSharedPreferences(name, Context.MODE_PRIVATE)
     }
-
+    companion object {
+        const val IS_LOGIN = "is_login"
+    }
     operator fun getValue(thisRef: Any?, property: KProperty<*>): T {
         Log.i("info", "调用$this 的getValue()")
         return getSharePreferences(name, default)

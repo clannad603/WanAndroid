@@ -34,7 +34,8 @@ android {
 }
 
 dependencies {
-
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
+    implementation files('libs/tbs_sdk_thirdapp_v4.3.0.67_43967_sharewithdownloadwithfile_withoutGame_obfs_20200923_120452.jar')
     implementation 'com.squareup.okhttp3:logging-interceptor:4.0.0'
     implementation "com.github.bumptech.glide:glide:4.11.0"
     implementation 'androidx.recyclerview:recyclerview:1.1.0'

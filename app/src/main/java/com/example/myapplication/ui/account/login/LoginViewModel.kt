@@ -28,5 +28,4 @@ class LoginViewModel:BaseViewModel() {
         //loading.value = false
         it.errorMsg
     }
-
 }

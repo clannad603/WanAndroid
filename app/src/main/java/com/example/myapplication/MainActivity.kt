@@ -21,32 +21,27 @@ import com.example.myapplication.ui.base.BaseActivity
  */
 class MainActivity : BaseActivity<MavenViewModel,FragmentMavenBinding> (){
    private var adapter: AllListAdapter?=null
-   private var list:ArrayList<String>?=null
-
     override fun initData() {
 
     }
-
-
     override fun initListener() {
          v.MavenSearchBt.setOnClickListener {
              vm.setCheck(true)
         }
     }
-
     override fun initView() {
-        list = ArrayList()
-        adapter = AllListAdapter(mContext, list!!)
+        adapter = AllListAdapter(mContext, vm.mavenList)
         v.recyclerView.layoutManager = LinearLayoutManager(mContext)
         v.recyclerView.adapter = adapter
     }
 
     override fun initVM() {
-          vm.mavenLiveData.observe(this, Observer {
-
-          it.run {
-
-          }
+          vm.lists.observe(this, Observer {
+              v.recyclerView.visibility=View.VISIBLE
+              if (it != null) {
+                  vm.mavenList.addAll(it)
+              }
+              adapter?.notifyDataSetChanged()
           })
     }
 

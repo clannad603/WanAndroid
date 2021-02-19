@@ -3,6 +3,7 @@ package com.example.myapplication
 import android.annotation.SuppressLint
 import android.app.Application
 import android.content.Context
+import android.util.Log
 
 class WanAndroidApplication:Application() {
     companion object{
@@ -14,4 +15,5 @@ class WanAndroidApplication:Application() {
         super.onCreate()
         context=applicationContext
     }
+
 }

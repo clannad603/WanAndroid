@@ -2,7 +2,7 @@ package com.example.myapplication.logic.model.bean
 
 data class PageVO<T>(
         val curPage: Int,
-        val data: List<ArticleVO>,
+        val articles: List<ArticleVO>,
         val offset: Int,
         val over: Boolean,
         val pageCount: Int,

@@ -10,8 +10,6 @@ import retrofit2.http.*
 
 interface ApiService {
 
-    @GET("banner/json")
-    fun bannerList(): LiveData<BaseResponse<List<BannerVO>>>
     @GET("maven_pom/package/json")
    fun getMavenList():LiveData<BaseResponse<List<String>>>
     @GET("article/list/{page}/json")
@@ -25,7 +23,6 @@ interface ApiService {
     fun articleTopList(
     ): LiveData<BaseResponse<List<ArticleVO>>>
     //注册
-
     @POST("user/register")
      fun register(
             @Query("username") username: String?,
