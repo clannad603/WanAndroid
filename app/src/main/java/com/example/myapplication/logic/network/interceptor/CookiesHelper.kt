@@ -5,7 +5,10 @@ import com.example.myapplication.utils.MyPreference
 import java.lang.StringBuilder
 
 object CookiesHelper {
-fun parseCookie(it: List<String>): String {
+    /***
+     * 组装cookies
+     */
+    fun parseCookie(it: List<String>): String {
         if(it.isEmpty()){
             return ""
         }

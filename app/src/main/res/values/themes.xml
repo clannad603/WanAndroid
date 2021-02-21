@@ -21,6 +21,7 @@
         <item name="colorControlNormal">@color/white</item>
         <item name="actionOverflowMenuStyle">@style/PopupMenu.Overflow</item>
     </style>
+
     <style name="Theme.MyApplication.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
@@ -31,6 +32,7 @@
         <!--false表示弹出框位置位于toolbar下面-->
         <item name="overlapAnchor">false</item>
     </style>
+
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light">
         <!--新增一个item，用于控制menu-->
         <item name="actionOverflowMenuStyle">@style/OverflowMenuStyle</item>
@@ -39,6 +41,11 @@
     <style name="OverflowMenuStyle" parent="Widget.AppCompat.Light.PopupMenu.Overflow">
         <!--把该属性改为false即可使menu位置位于toolbar之下-->
         <item name="overlapAnchor">false</item>
+    </style>
+
+    <style name="MyTabLayout">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
     <style name="Theme.MyApplication.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />

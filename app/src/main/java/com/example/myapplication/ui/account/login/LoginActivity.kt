@@ -3,10 +3,12 @@ package com.example.myapplication.ui.account.login
 
 import androidx.lifecycle.Observer
 import com.example.myapplication.databinding.ActivityLoginBinding
+import com.example.myapplication.logic.model.Constant
 import com.example.myapplication.logic.model.bean.LoginInfo
 import com.example.myapplication.logic.model.bean.RegisterInfo
 import com.example.myapplication.ui.account.register.RegisterActivity
 import com.example.myapplication.ui.base.BaseActivity
+import com.example.myapplication.utils.MyPreference
 import com.example.myapplication.utils.ToastUtil
 import com.example.myapplication.utils.expand.setOnclickNoRepeat
 
@@ -38,9 +40,7 @@ class LoginActivity : BaseActivity<LoginViewModel, ActivityLoginBinding>() {
         })
         vm.loginUser.observe(this, Observer {
             if(it==0){
-                vm.makeLogin("true")
-            }else{
-                vm.makeLogin("false")
+                isLogin=true
             }
         })
     }

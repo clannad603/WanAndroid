@@ -20,5 +20,4 @@ object CookieInterceptor {
             response
         }
     }
-
 }

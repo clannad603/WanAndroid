@@ -4,13 +4,13 @@
     package="com.example.myapplication">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         tools:ignore="ScopedStorage" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
     <application
         android:name=".WanAndroidApplication"
         android:allowBackup="true"
@@ -19,20 +19,24 @@
         android:networkSecurityConfig="@xml/network_config"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MyApplication"
+        android:theme="@style/Theme.MyApplication.NoActionBar"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.ContentActivity"></activity>
+        <activity android:name=".ui.officialaccount.OffficialActivity"/>
+        <activity android:name=".ui.account.coindetai.CoinDetailActivity" />
+        <activity android:name=".ui.account.mine.MineActivity" />
+        <activity android:name=".ui.content.ContentActivity" />
         <activity android:name=".ui.search.SearchActivity" />
         <activity android:name=".ui.account.register.RegisterActivity" />
+        <activity android:name=".ui.account.logout.LogoutActivity" />
         <activity android:name=".ui.account.login.LoginActivity" />
-        <activity android:name=".ui.drawablenavi.ModuleMainActivity">
+        <activity android:name=".ui.mainview.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".ui.collect.CollectActivity">
 
             <!-- <intent-filter> -->
             <!-- <action android:name="android.intent.action.MAIN" /> -->

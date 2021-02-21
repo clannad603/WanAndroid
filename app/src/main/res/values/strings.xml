@@ -38,4 +38,26 @@
     <string name="inputAccount">请输入账号</string>
     <string name="loading">加载中。。。</string>
     <string name="first_home">首页</string>
+    <string name="withbegin">开始</string>
+    <string name="logout">退出</string>
+    <string name="mine">我的</string>
+    <string name="nickname">昵称</string>
+    <string name="coin">积分</string>
+    <string name="rank">排行</string>
+    <string name="empty">空</string>
+    <string name="usercode">用户号</string>
+    <string name="level">等级</string>
+    <string name="collect">收藏</string>
+    <string name="qa">问答</string>
+    <string name="title_activity_main2">MainActivity</string>
+    <string name="tools">工具</string>
+    <string name="project">项目</string>
+    <string name="contdetail">积分详情</string>
+    <string name="title_activity_coin_detail">CoinDetailActivity</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="myCollect">我的收藏</string>
+    <string name="square">广场</string>
+    <string name="officialAccount">公众号</string>
+
 </resources>

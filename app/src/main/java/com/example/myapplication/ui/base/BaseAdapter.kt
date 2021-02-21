@@ -16,7 +16,6 @@ abstract class BaseAdapter <VB : ViewBinding, T>(
     override fun getItemCount(): Int {
         return listData.size
     }
-
     override fun onBindViewHolder(holder: BaseViewHolder, position: Int) {
         holder.itemView.clicks {
             itemClick?.let { it(position) }
@@ -41,8 +40,6 @@ abstract class BaseAdapter <VB : ViewBinding, T>(
     }
     private var itemClick: ((Int) -> Unit)? = null
     private var itemLongClick: ((Int) -> Unit)? = null
-
-
     fun itemClick(itemClick: (Int) -> Unit) {
         this.itemClick = itemClick
     }

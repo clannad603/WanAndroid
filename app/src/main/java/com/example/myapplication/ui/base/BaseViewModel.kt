@@ -13,8 +13,8 @@ import kotlinx.coroutines.launch
 open class BaseViewModel :ViewModel(){
 
     protected val page = MutableLiveData<Int>()
-    val isLogin=MutableLiveData<String>()
-    fun makeLogin(string: String){
-        isLogin.value=string
+    val isLogin=MutableLiveData<Boolean>()
+    fun makeLogin(boolean: Boolean){
+        isLogin.value=boolean
     }
 }
